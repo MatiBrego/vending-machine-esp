@@ -8,8 +8,7 @@
 #include <Arduino.h>
 
 #include "hw.h"
-
-int buttons[6] = {STATUS_BUTTON, CREDIT_BUTTON, ESP_BUTTON, PROTO_BUTTON, LED_BUTTON, PUSHER_BUTTON};
+#include "push.h"
 
 /*
  *  Public functions
@@ -41,23 +40,9 @@ init_hw()
     digitalWrite(LED_RED,LOW);
     digitalWrite(LED_GRN,HIGH);
 
+    button_init();
+
     // pinMode(IB0,INPUT_PULLUP);
     // pinMode(IB1,INPUT_PULLUP);
-}
-
-/*
- *  verify_push:
- *      verifies if tact pushbotton has closed
- *      returns boolean on closure
- */
-
-bool
-verify_push(Button btn)
-{
-    bool result = btn.debounce();
-    if(result){
-        Serial.printf("Button %d" , result);
-    }
-    return result;
 }
 

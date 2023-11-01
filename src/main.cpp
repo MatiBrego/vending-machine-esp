@@ -11,24 +11,11 @@
 // #include "mqtt.h"
 #include "hw.h"
 #include "mqqt_sending_actions.h"
-#include "hw_actions.h"
+#include "push.h"
+#include "vending_actions.h"
 
 int board;
-Button machineStatus = Button();
-Button insertCredit = Button();
-Button products[4] = {Button(), Button(), Button(), Button()};
 
-int status = 1;
-
-void
-beginButtons(void){
-    machineStatus.begin(STATUS_BUTTON);
-    insertCredit.begin(CREDIT_BUTTON);
-    products[0].begin(ESP_BUTTON);
-    products[1].begin(PROTO_BUTTON);
-    products[2].begin(LED_BUTTON);
-    products[3].begin(PUSHER_BUTTON);
-}
 
 void
 setup(void)
@@ -38,7 +25,7 @@ setup(void)
     // connect_wifi();
 
     init_hw();
-    beginButtons();
+
     board = get_board_num();
     printf("Board = %d\n", board);
     // init_mqtt(board);
@@ -48,32 +35,36 @@ setup(void)
 void
 loop(void)
 {
-    if( machineStatus.debounce() ){
-        if(status == 1){
-            status = 0;     
-        }
-        else{
-            status = 1;
-        }
-        toggle_led_grn();
-        toggle_led_red();
+    if( push_done(STATUS_REF) ){
+        toggle_status();
         // publish_status_change(status);
+        print_actual_state();
     }
 
-    if (insertCredit.debounce()){
+    if (push_done(CREDIT)){
+        insert_credit();
         // publish_credit_insert_button_pressed(1);
+        print_actual_state();
     }
-    if(products[0].debounce()){
+    if(push_done(ESP_REF)){
+        buy_esp();
         // publish_esp_button_pressed();
+        print_actual_state();
     }
-    if(products[1].debounce()){
+    if(push_done(PROTO)){
+        buy_proto();
         // publish_protoboard_button_pressed();
+        print_actual_state();
     }
-    if(products[2].debounce()){
+    if(push_done(LED)){
+        buy_led();
         // publish_led_led_button_pressed();
+        print_actual_state();
     }
-    if(products[3].debounce()){
+    if(push_done(PUSHER)){
+        buy_pusher();
         // publish_pusher_button_pressed();
+        print_actual_state();
     }
     // mqtt_loop();
 }
