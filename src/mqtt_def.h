@@ -81,9 +81,9 @@ static const char *subs[] =
  *      subs_string:    sub-string to be used in topic suubscription
  */
 
-#define id_string(buf,brd)      sprintf(buf,"%s_%s_%02d",   MAIN_NAME,SUB_NAME,brd)
-#define topic_string(buf,brd)   sprintf(buf,"%s/%s/%02d",   MAIN_NAME,SUB_NAME,brd)
-#define subs_string(buf)        sprintf(buf,"%s/%s",        MAIN_NAME,SUB_NAME)
+#define id_string(buf,brd)      sprintf(buf,"%s_%02d",   MAIN_NAME,brd)
+#define topic_string(buf,brd)   sprintf(buf,"%s/%02d",   MAIN_NAME,brd)
+#define subs_string(buf)        sprintf(buf,"%s",        MAIN_NAME)
 
 /*
  *  C4 -> broker selection
@@ -95,7 +95,7 @@ static const char *subs[] =
     #define BROKER_USER ""
     #define BROKER_PASS ""
 #elif (MQTT==1)
-    #define BROKER_NAME "44.218.56.34"          //  Mosquitto outside local network
+    #define BROKER_NAME "54.164.78.202"          //  Mosquitto outside local network
     #define BROKER_PORT 1883
     #define BROKER_USER ""
     #define BROKER_PASS ""

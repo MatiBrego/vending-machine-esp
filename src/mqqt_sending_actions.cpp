@@ -7,6 +7,9 @@
 
 #include "mqtt.h"
 #include "stdio.h"
+#include "Arduino.h"
+#include "hw.h"
+
 
 static const char* stock_subtopic   = "stock";
 static const char* status_subtopic  = "status";
@@ -19,75 +22,66 @@ static int protoboard_id = 2;
 static int led_id = 3;
 static int pusher_id = 4;
 
+static int board_num = get_board_num();
+
 void publish_esp_button_pressed(){
-    char* topic;
+    char topic[100];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char* msg;
-    sprintf(msg,"%d", esp_id);
+    char msg[100];
+    sprintf(msg,"{'productId' : %d, 'machineId': %d}", esp_id, board_num);
     do_publish(topic, msg);
 }
 
 void publish_protoboard_button_pressed(){
-    char* topic;
+    char topic[100];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char* msg;
-    sprintf(msg,"%d", protoboard_id);
+    char msg[100];
+    sprintf(msg,"{'productId' : %d, 'machineId': %d}", protoboard_id, board_num);
     do_publish(topic, msg);
 }
 void publish_led_led_button_pressed(){
-    char* topic;
+    char topic[100];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char* msg;
-    sprintf(msg,"%d", led_id);
+    char msg[100];
+    sprintf(msg,"{'productId' : %d, 'machineId': %d}", led_id, board_num);
     do_publish(topic, msg);
 }
 void publish_pusher_button_pressed(){
-    char* topic;
+    char topic[100];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char* msg;
-    sprintf(msg,"%d", pusher_id);
+    char msg[100];
+    sprintf(msg,"{'productId' : %d, 'machineId': %d}", pusher_id, board_num);
     do_publish(topic, msg);
 }
 
-void publish_credit_insert_button_pressed(int amount){
-    char* topic;
+void publish_credit_insert_button_pressed(int increment){
+    char topic[100];
     sprintf(topic,"%s", credit_subtopic);
 
-    char* msg;
-    sprintf(msg,"%d", amount);
+    char msg[100];
+    sprintf(msg,"{'increment': %d, 'machineId': %d}", increment, board_num);
     do_publish(topic, msg);
 }
 
 void publish_status_change(int status){
-    char* topic;
+    char topic[100];
     sprintf(topic,"%s", status_subtopic);
 
-    char* msg;
-    sprintf(msg,"%d", status);
+    char msg[100];
+    sprintf(msg,"{'status' : %d, 'machineId': %d}", status, board_num);
+
     do_publish(topic, msg);
 }
 
 void publish_stock_refill(int max_amount){
-    char* topic;
+    char topic[100];
     sprintf(topic,"%s", stock_subtopic);
 
-    char* esp;
-    sprintf(esp, "{'%s':'%s'}", esp_id, max_amount);
-
-    char* protoboard;
-    sprintf(protoboard, "{'%s':'%s'}", protoboard_id, max_amount);
-
-    char* led;
-    sprintf(led, "{'%s':'%s'}", led_id, max_amount);
-
-    char* pusher;
-    sprintf(pusher, "{'%s':'%s'}", pusher_id, max_amount);
-
-    char* msg;
-    sprintf(msg,"[%s, %s, %s, %s]", esp, protoboard, led, pusher);
+    char msg[100];
+    sprintf(msg,"{machineId: %s, stock: %d}", board_num, max_amount);
     do_publish(topic, msg);
 }
