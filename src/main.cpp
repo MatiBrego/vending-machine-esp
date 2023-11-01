@@ -42,27 +42,22 @@ loop(void)
     }
     if (push_done(CREDIT)){
         insert_credit();
-        publish_credit_insert_button_pressed(1);
         print_actual_state();
     }
     if(push_done(ESP_REF)){
         buy_esp();
-        publish_esp_button_pressed();
         print_actual_state();
     }
     if(push_done(PROTO)){
         buy_proto();
-        publish_protoboard_button_pressed();
         print_actual_state();
     }
     if(push_done(LED)){
         buy_led();
-        publish_led_led_button_pressed();
         print_actual_state();
     }
     if(push_done(PUSHER)){
         buy_pusher();
-        publish_pusher_button_pressed();
         print_actual_state();
     }
     test_mqtt();

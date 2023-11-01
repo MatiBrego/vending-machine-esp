@@ -43,7 +43,7 @@ void print_actual_state(){
 }
 
 void toggle_status(){
-    if(status == 1){
+    if(status){
         status = 0;     
     }
     else{
@@ -55,7 +55,10 @@ void toggle_status(){
 }
 
 void insert_credit(){
-    credit += 1;
+    if(status){
+        credit += 1;
+        publish_credit_insert_button_pressed(1);
+    }
 }
 
 bool check_credit(int price){
@@ -67,34 +70,30 @@ bool check_stock(int stock){
 }
 
 void buy_esp(){
-    if (check_credit(esp_price)){
-        if(check_stock(esp_stock)){
+    if (check_credit(esp_price) && check_stock(esp_stock) && status){
             credit -= esp_price;
             esp_stock -= 1;
-        }
+            publish_esp_button_pressed();
     }
 }
 void buy_proto(){
-    if (check_credit(proto_price)){
-        if(check_stock(proto_stock)){
+    if (check_credit(proto_price) && check_stock(proto_stock) && status){
             credit -= proto_price;
             proto_stock -= 1;
-        }
+            publish_protoboard_button_pressed();
     }
 }
 void buy_led(){
-    if (check_credit(led_price)){
-        if(check_stock(led_stock)){
+    if (check_credit(led_price) && check_stock(led_stock) && status){
             credit -= led_price;
             led_stock -= 1;
-        }
+            publish_led_led_button_pressed();
     }
 }
 void buy_pusher(){
-    if (check_credit(pusher_price)){
-        if(check_stock(pusher_stock)){
+    if (check_credit(pusher_price) && check_stock(pusher_stock) && status){
             credit -= pusher_price;
             pusher_stock -= 1;
-        }
+            publish_pusher_button_pressed();
     }
 }
