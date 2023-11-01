@@ -17,25 +17,32 @@ int pusher_stock    = max_stock;
 
 void print_actual_state(){
     if (status){
-        Serial.println("+-----------------------------------------+");
-        Serial.println("|               VENDING MACHINE           |");
-        Serial.println("+-----------------------------------------+");
-        Serial.println("|       PRODUCT       |       STOCK       |");
-        Serial.println("+---------------------+-------------------+");
+        Serial.println("+----------------------------------------------------------+");
+        Serial.println("|                        VENDING MACHINE                   |");
+        Serial.println("+---------------------+------------------+-----------------+");
+        Serial.println("|       PRODUCT       |      STOCK       |        PRICE    |");
+        Serial.println("+---------------------+------------------+-----------------+");
 
-        Serial.printf("| ESP Chip            | %17d |\n", esp_stock);
-        Serial.printf("| Protoboard          | %17d |\n", proto_stock);
-        Serial.printf("| Led diode           | %17d |\n", led_stock);
-        Serial.printf("| Button              | %17d |\n", pusher_stock);
-        Serial.println("+-----------------------------------------+");
-        Serial.printf("| Credit:             | $%16d |\n", credit);
-        Serial.println("+-----------------------------------------+");
+        Serial.printf("| ESP Chip            | %16d | $%14d |\n", esp_stock, esp_price);
+        Serial.printf("| Protoboard          | %16d | $%14d |\n", proto_stock, proto_price);
+        Serial.printf("| Led diode           | %16d | $%14d |\n", led_stock, led_price);
+        Serial.printf("| Button              | %16d | $%14d |\n", pusher_stock, pusher_price);
+        Serial.println("+----------------------------------------------------------+");
+        Serial.printf("| Credit:             | $                  %15d |\n", credit);
+        Serial.println("+----------------------------------------------------------+");
     }else {
-        Serial.println("+-----------------------------------------+");
-        Serial.println("|               VENDING MACHINE           |");
-        Serial.println("+-----------------------------------------+");
-        Serial.println("|                OUT OF SERVICE           |");
-        Serial.println("+---------------------+-------------------+");
+        Serial.println("+----------------------------------------------------------+");
+        Serial.println("|                        VENDING MACHINE                   |");
+        Serial.println("+----------------------------------------------------------+");
+        Serial.println("|                                                          |");
+        Serial.println("|                                                          |");
+        Serial.println("|                                                          |");
+        Serial.println("|                        OUT OF SERVICE                    |");
+        Serial.println("|                                                          |");
+        Serial.println("|                                                          |");
+        Serial.println("|                                                          |");
+        Serial.println("|                                                          |");
+        Serial.println("+----------------------------------------------------------+");
     }
 
     
