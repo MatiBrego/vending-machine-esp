@@ -1,5 +1,6 @@
 #include "hw_actions.h"
 #include <Arduino.h>
+#include "mqqt_sending_actions.h"
 
 int status = 1;
 int credit = 0;
@@ -50,6 +51,7 @@ void toggle_status(){
     }
     toggle_led_grn();
     toggle_led_red();
+    publish_status_change(status);
 }
 
 void insert_credit(){

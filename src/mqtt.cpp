@@ -193,7 +193,7 @@ do_publish(const char *ptopic, const char *msg)
     tp[sizeof(tp)-1] = '\0';
     snprintf( tp, sizeof(tp)-1, "%s/%s", tp_string, ptopic );
     client.publish( tp, msg );
-    Serial.printf( "%s: %s %s\n\r", __FUNCTION__, tp, msg );
+    // Serial.printf( "%s: %s %s\n\r", __FUNCTION__, tp, msg );
 }
 
 /*
