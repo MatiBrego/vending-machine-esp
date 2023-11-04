@@ -4,7 +4,7 @@
 
 enum
 {
-    STATUS_REF, CREDIT, ESP_REF, PROTO, LED, PUSHER, // Status and esp are reserved words, I added REF to make them available.
+    STATUS_REF, CREDIT, ESP_REF, PROTO, LED, PUSHER, STOCK, // Status and esp are reserved words, added REF to make them available.
     NUM_PUSH // Amount of buttons
 };
 

@@ -22,14 +22,14 @@ setup(void)
 {
     Serial.begin(BAUD);
 
-    connect_wifi();
+    // connect_wifi();
 
     init_hw();
 
     board = get_board_num();
     printf("Board = %d\n", board);
-    init_mqtt(board);
-    TelnetStream.begin();
+    // init_mqtt(board);
+    // TelnetStream.begin();
     print_actual_state();
 }
 
@@ -60,6 +60,12 @@ loop(void)
         buy_pusher();
         print_actual_state();
     }
+    if (push_done(STOCK))
+    {
+        refill_stock();
+        print_actual_state();
+    }
+    
     test_mqtt();
 }
 
