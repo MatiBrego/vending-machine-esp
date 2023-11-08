@@ -22,14 +22,14 @@ setup(void)
 {
     Serial.begin(BAUD);
 
-    // connect_wifi();
+    connect_wifi();
 
     init_hw();
 
     board = get_board_num();
     printf("Board = %d\n", board);
-    // init_mqtt(board);
-    // TelnetStream.begin();
+    init_mqtt(board);
+    TelnetStream.begin();
     print_actual_state();
 }
 
