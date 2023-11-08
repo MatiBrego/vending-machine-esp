@@ -46,6 +46,7 @@ set_red( int origin, char *msg )
 void
 set_grn(int origin, char *msg)
 {
+    Serial.println("set_grn");
     TelnetStream.printf("%02d -> %02d |  %s: msg -> %s\n", origin, board, __FUNCTION__, msg );
     set_led_grn( msg[0] != '0' );
 }
