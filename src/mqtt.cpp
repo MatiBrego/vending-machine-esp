@@ -22,6 +22,7 @@
 #include "mqtt.h"               //  Prototypes of this module public functions
 #include "mqtt_actions.h"       //  Actions to be called in case of subscription topics news
 #include "mqtt_def.h"           //  User configuration file
+#include "vending_actions.h"    //  Actions to be called in case of subscription topics news
 
 /*
  *  Objects instantiations
@@ -85,6 +86,7 @@ callback(char *topic, byte *payload, unsigned int length)
     for( int i = 0; topics[i].sub_topic != NULL; ++i )
         if( strcmp( pl, topics[i].sub_topic ) == 0 )
         {
+            // Serial.printf("action = %s\n", topics[i].sub_topic);
             (*topics[i].action)( origin_num, (char *)payload );
             break;
         }
@@ -177,6 +179,7 @@ init_mqtt(int num)
 
     client_connect();
     init_subscriptions();
+    do_publish("init", std::to_string(SUB_LIST).c_str());
 }
 
 /*
