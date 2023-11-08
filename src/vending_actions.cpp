@@ -104,3 +104,11 @@ void buy_pusher(){
             publish_pusher_button_pressed();
     }
 }
+
+void refill_stock(){
+    esp_stock       = max_stock;
+    proto_stock     = max_stock;
+    led_stock       = max_stock;
+    pusher_stock    = max_stock;
+    publish_stock_refill(max_stock);
+}

@@ -5,3 +5,4 @@ void buy_esp();
 void buy_proto();
 void buy_led();
 void buy_pusher();
+void refill_stock();

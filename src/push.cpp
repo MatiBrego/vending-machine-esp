@@ -12,7 +12,8 @@ static const unsigned pin[NUM_PUSH] = {
     ESP_BUTTON, 
     PROTO_BUTTON,
     LED_BUTTON,
-    PUSHER_BUTTON
+    PUSHER_BUTTON,
+    STOCK_BUTTON
     };
 
 Button btns[NUM_PUSH];

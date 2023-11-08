@@ -82,6 +82,7 @@ void publish_stock_refill(int max_amount){
     sprintf(topic,"%s", stock_subtopic);
 
     char msg[100];
-    sprintf(msg,"{machineId: %s, stock: %d}", board_num, max_amount);
+    Serial.printf(msg);
+    sprintf(msg,"{machineId: %d, stock: %d}", board_num, max_amount);
     do_publish(topic, msg);
 }
