@@ -112,3 +112,17 @@ void refill_stock(){
     pusher_stock    = max_stock;
     publish_stock_refill(max_stock);
 }
+
+void update_values(int origin, char *msg){
+    char *token = strtok(msg, ",");
+    credit = atoi(token);
+    token = strtok(NULL, ",");
+    esp_stock = atoi(token);
+    token = strtok(NULL, ",");
+    proto_stock = atoi(token);
+    token = strtok(NULL, ",");
+    led_stock = atoi(token);
+    token = strtok(NULL, ",");
+    pusher_stock = atoi(token);
+    print_actual_state();
+}

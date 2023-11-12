@@ -1,6 +1,8 @@
 #ifndef __MQTT_DEF_H__
 #define __MQTT_DEF_H__
 
+#include "vending_actions.h"
+
 /*
  *  mqtt_def.h
  *
@@ -35,6 +37,7 @@ static const topic_t topics[] =
     {   "sg", set_grn       },
     // {   "si", set_int       },
     // {   "button", rx_button },
+    {   "machine_init_1", update_values },
     {   NULL }
 };
 
@@ -61,11 +64,10 @@ static const char *subs[] =
     "+/clear",
     "50/#",
     "+/button",
+    "+/machine_init_1",
 #elif (SUB_LIST==2)
-    "+/sr",
-    "00/sy",
-    "+/cy",
-    "+/clear",
+    "+/machine_init_2",
+
 #else
     #error "Bad SUB_LIST symbol, out of range"
 #endif

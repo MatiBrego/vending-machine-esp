@@ -6,3 +6,4 @@ void buy_proto();
 void buy_led();
 void buy_pusher();
 void refill_stock();
+void update_values(int origin, char *message);

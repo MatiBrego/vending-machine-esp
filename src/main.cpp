@@ -30,7 +30,6 @@ setup(void)
     printf("Board = %d\n", board);
     init_mqtt(board);
     TelnetStream.begin();
-    print_actual_state();
 }
 
 void
@@ -38,34 +37,36 @@ loop(void)
 {
     if( push_done(STATUS_REF) ){
         toggle_status();
-        print_actual_state();
+        print_actual_state();  
     }
     if (push_done(CREDIT)){
-        insert_credit();
-        print_actual_state();
+        insert_credit();     
+        print_actual_state();   
     }
     if(push_done(ESP_REF)){
-        buy_esp();
-        print_actual_state();
+        buy_esp();   
+        print_actual_state();     
     }
     if(push_done(PROTO)){
-        buy_proto();
-        print_actual_state();
+        buy_proto();    
+        print_actual_state();    
     }
     if(push_done(LED)){
-        buy_led();
+        buy_led();    
         print_actual_state();
     }
     if(push_done(PUSHER)){
         buy_pusher();
         print_actual_state();
+
     }
     if (push_done(STOCK))
     {
         refill_stock();
         print_actual_state();
+        
     }
-    
+
     test_mqtt();
 }
 
