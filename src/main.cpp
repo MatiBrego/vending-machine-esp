@@ -14,7 +14,7 @@
 #include "push.h"
 #include "vending_actions.h"
 
-int board;
+char* board;
 
 
 void

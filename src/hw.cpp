@@ -20,10 +20,10 @@
  */
 
 
-int
-get_board_num(void)
+
+char* get_board_num(void)
 {
-    return digitalRead(IB0) | (digitalRead(IB1) << 1); 
+    return BOARD_NUM; 
 }
 
 /*

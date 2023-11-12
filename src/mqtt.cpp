@@ -90,7 +90,6 @@ callback(char *topic, byte *payload, unsigned int length)
             (*topics[i].action)( origin_num, (char *)payload );
             break;
         }
-    Serial.println("-----------------------");
 }
 
 /*
@@ -167,7 +166,7 @@ init_subscriptions(void)
 
 
 void
-init_mqtt(int num)
+init_mqtt(char* num)
 {
     subs_string(sub_header);
 
@@ -179,7 +178,7 @@ init_mqtt(int num)
 
     client_connect();
     init_subscriptions();
-    do_publish("init", std::to_string(SUB_LIST).c_str());
+    do_publish("init", num);
 }
 
 /*

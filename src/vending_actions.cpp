@@ -114,6 +114,7 @@ void refill_stock(){
 }
 
 void update_values(int origin, char *msg){
+    Serial.print("\n\nStarting Machine\n\n");
     char *token = strtok(msg, ",");
     credit = atoi(token);
     token = strtok(NULL, ",");

@@ -13,5 +13,5 @@ enum
 };
 
 void init_hw();         //  Called at power up
-int get_board_num(void);    //  return board number
+char* get_board_num(void);    //  return board number
 bool verify_push(Button btn);        //  Verifies all input hardware

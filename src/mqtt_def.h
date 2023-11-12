@@ -37,7 +37,7 @@ static const topic_t topics[] =
     {   "sg", set_grn       },
     // {   "si", set_int       },
     // {   "button", rx_button },
-    {   "machine_init_1", update_values },
+    {   "machine_init_6550dec96b946ce26bee14c4", update_values },
     {   NULL }
 };
 
@@ -66,7 +66,7 @@ static const char *subs[] =
     "+/button",
     "+/machine_init_1",
 #elif (SUB_LIST==2)
-    "+/machine_init_2",
+    "machine_init_6550dec96b946ce26bee14c4",
 
 #else
     #error "Bad SUB_LIST symbol, out of range"
