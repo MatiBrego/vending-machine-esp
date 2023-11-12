@@ -81,9 +81,9 @@ static const char *subs[] =
  *      subs_string:    sub-string to be used in topic suubscription
  */
 
-#define id_string(buf,brd)      sprintf(buf,"%s_%02d",   MAIN_NAME,brd)
-#define topic_string(buf,brd)   sprintf(buf,"%s/%02d",   MAIN_NAME,brd)
-#define subs_string(buf)        sprintf(buf,"%s",        MAIN_NAME)
+#define id_string(buf)      sprintf(buf,"%s",   MAIN_NAME)
+#define topic_string(buf)   sprintf(buf,"%s",   MAIN_NAME)
+#define subs_string(buf)    sprintf(buf,"%s",   MAIN_NAME)
 
 /*
  *  C4 -> broker selection

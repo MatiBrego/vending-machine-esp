@@ -29,7 +29,7 @@ void publish_esp_button_pressed(){
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
     char msg[100];
-    sprintf(msg,"{'productId' : %d, 'machineId': %d}", esp_id, board_num);
+    sprintf(msg,"{\"productId\": %d, \"machineId\": %d}", esp_id, board_num);
     do_publish(topic, msg);
 }
 
@@ -38,7 +38,7 @@ void publish_protoboard_button_pressed(){
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
     char msg[100];
-    sprintf(msg,"{'productId' : %d, 'machineId': %d}", protoboard_id, board_num);
+    sprintf(msg,"{\"productId\": %d, \"machineId\": %d}", protoboard_id, board_num);
     do_publish(topic, msg);
 }
 void publish_led_led_button_pressed(){
@@ -46,7 +46,7 @@ void publish_led_led_button_pressed(){
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
     char msg[100];
-    sprintf(msg,"{'productId' : %d, 'machineId': %d}", led_id, board_num);
+    sprintf(msg,"{\"productId\": %d, \"machineId\": %d}", led_id, board_num);
     do_publish(topic, msg);
 }
 void publish_pusher_button_pressed(){
@@ -54,7 +54,7 @@ void publish_pusher_button_pressed(){
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
     char msg[100];
-    sprintf(msg,"{'productId' : %d, 'machineId': %d}", pusher_id, board_num);
+    sprintf(msg,"{\"productId\": %d, \"machineId\": %d}", pusher_id, board_num);
     do_publish(topic, msg);
 }
 
@@ -63,7 +63,7 @@ void publish_credit_insert_button_pressed(int increment){
     sprintf(topic,"%s", credit_subtopic);
 
     char msg[100];
-    sprintf(msg,"{'increment': %d, 'machineId': %d}", increment, board_num);
+    sprintf(msg,"{\"increment\": %d, \"machineId\": %d}", increment, board_num);
     do_publish(topic, msg);
 }
 
@@ -72,7 +72,7 @@ void publish_status_change(int status){
     sprintf(topic,"%s", status_subtopic);
 
     char msg[100];
-    sprintf(msg,"{'status' : %d, 'machineId': %d}", status, board_num);
+    sprintf(msg,"{\"status\": %d, \"machineId\": %d}", status, board_num);
 
     do_publish(topic, msg);
 }
@@ -83,7 +83,7 @@ void publish_stock_refill(int max_amount){
 
     char msg[100];
     Serial.printf(msg);
-    sprintf(msg,"{'machineId': %d, 'stock': %d}", board_num, max_amount);
+    sprintf(msg,"{\"machineId\": %d, \"stock\": %d}", board_num, max_amount);
     do_publish(topic, msg);
 }
 

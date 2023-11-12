@@ -169,10 +169,10 @@ init_mqtt(int num)
 {
     subs_string(sub_header);
 
-    id_string(client_id,num);
+    id_string(client_id);
     Serial.printf("client_id: %s\n", client_id );
 
-    topic_string(tp_string,num);
+    topic_string(tp_string);
     Serial.printf("tp_string: %s\n", tp_string );
 
     client_connect();
