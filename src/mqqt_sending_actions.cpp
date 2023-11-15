@@ -17,44 +17,44 @@ static const char* product_subtopic = "product";
 static const char* credit_subtopic  = "credit";
 static const char* buy_subtopic     = "buy";
 
-static int esp_id = 1;
-static int protoboard_id = 2;
-static int led_id = 3;
-static int pusher_id = 4;
+char* esp_id = "6550d9a796bc3f713a2fc0ba";
+char* protoboard_id = "6550d9a796bc3f713a2fc0ba";
+char* led_id = "6550da5696bc3f713a2fc0bc";
+char* pusher_id = "6550da5696bc3f713a2fc0bd";
 
 char* board_num = get_board_num();
 
 void publish_esp_button_pressed(){
-    char topic[100];
+    char topic[200];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char msg[100];
-    sprintf(msg,"{\"productId\": %d, \"machineId\": \"%s\"}", esp_id, board_num);
+    char msg[200];
+    sprintf(msg,"{\"productId\": \"%s\", \"machineId\": \"%s\"}", esp_id, board_num);
     do_publish(topic, msg);
 }
 
 void publish_protoboard_button_pressed(){
-    char topic[100];
+    char topic[200];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char msg[100];
-    sprintf(msg,"{\"productId\": %d, \"machineId\": \"%s\"}", protoboard_id, board_num);
+    char msg[200];
+    sprintf(msg,"{\"productId\": \"%s\", \"machineId\": \"%s\"}", protoboard_id, board_num);
     do_publish(topic, msg);
 }
 void publish_led_led_button_pressed(){
-    char topic[100];
+    char topic[200];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char msg[100];
-    sprintf(msg,"{\"productId\": %d, \"machineId\": \"%s\"}", led_id, board_num);
+    char msg[200];
+    sprintf(msg,"{\"productId\": \"%s\", \"machineId\": \"%s\"}", led_id, board_num);
     do_publish(topic, msg);
 }
 void publish_pusher_button_pressed(){
-    char topic[100];
+    char topic[200];
     sprintf(topic,"%s/%s/%s", stock_subtopic, product_subtopic, buy_subtopic);
 
-    char msg[100];
-    sprintf(msg,"{\"productId\": %d, \"machineId\": \"%s\"}", pusher_id, board_num);
+    char msg[200];
+    sprintf(msg,"{\"productId\": \"%s\", \"machineId\": \"%s\"}", pusher_id, board_num);
     do_publish(topic, msg);
 }
 
@@ -68,7 +68,7 @@ void publish_credit_insert_button_pressed(int increment){
 }
 
 void publish_status_change(int status){
-    char topic[100];
+    char topic[200];
     sprintf(topic,"%s", status_subtopic);
 
     char msg[100];
