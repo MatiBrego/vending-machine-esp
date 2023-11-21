@@ -2,15 +2,15 @@
 #define __WIFI_DATA_H__ // Esto sirve para no incluir dos veces el mismo archivo
 
 /*
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Vending-Machine
  *
  *  wifi_data.h
  *      Data configuration for WiFi connection
  */
 
 #if (WIFI==0)                   //  Home settings
-    #define MY_SSID "edumel2.4"
-    #define MY_PASS "geheim1943"
+    #define MY_SSID "myssid"
+    #define MY_PASS "mypass123"
 #elif (WIFI==1)                 //  University settings
     #define MY_SSID "UA-Alumnos"
     #define MY_PASS "41umn05WLC"

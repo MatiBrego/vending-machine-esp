@@ -1,5 +1,5 @@
 /*
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Vending-Machine
  *
  *  mqtt_actions.cpp
  *      Actions called as suscribed topics are received

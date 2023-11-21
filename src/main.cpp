@@ -1,5 +1,5 @@
 /*
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Vending-Machine
  *
  *      File main.cpp
  */

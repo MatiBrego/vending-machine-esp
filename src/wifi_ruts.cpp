@@ -1,5 +1,5 @@
 /*
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Vending-Machine
  *
  *  wifi_ruts.cpp
  *      Routines code for WiFi management

@@ -1,3 +1,10 @@
+/*
+ *  Project Vending-Machine
+ *
+ *  button.h
+ *      Button class to manage debounce
+ */
+
 #ifndef button_h
 #define button_h
 

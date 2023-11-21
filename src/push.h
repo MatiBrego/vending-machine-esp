@@ -1,5 +1,7 @@
-/*
+/*  Project Vending-Machine
+ * 
  *  push.h
+ *      Initialize buttons and handle push.
  */
 
 enum

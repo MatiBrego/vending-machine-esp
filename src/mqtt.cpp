@@ -1,6 +1,6 @@
 /*
  *
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Vending-Machine
  *
  *  mqtt.cpp
  *      Manage conversation with MQTT broker

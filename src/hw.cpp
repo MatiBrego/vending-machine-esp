@@ -1,5 +1,5 @@
 /*
- *  Project 41-mqtt_00 - Austral - EAM
+ *  Project Vending-Machine
  *
  *  hw.cpp
  *      Hardware dependent code
@@ -13,13 +13,6 @@
 /*
  *  Public functions
  */
-
-/*
- *  get_board_num
- *      Return board number read from IB1,IB0
- */
-
-
 
 char* get_board_num(void)
 {
@@ -41,8 +34,5 @@ init_hw()
     digitalWrite(LED_GRN,HIGH);
 
     button_init();
-
-    // pinMode(IB0,INPUT_PULLUP);
-    // pinMode(IB1,INPUT_PULLUP);
 }
 

@@ -1,5 +1,5 @@
 /*
- *  Project vending_machine
+ *  Project Vending-Machine
  *
  *  hw_actions.cpp
  *      Low level actions in output hardware

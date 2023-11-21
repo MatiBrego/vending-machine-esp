@@ -1,3 +1,9 @@
+/*  Project Vending-Machine
+ *   
+ *  vending_actions.cpp
+ *      Handle buying, credit, refill and start upate actions.
+ */
+
 #include "hw_actions.h"
 #include <Arduino.h>
 #include "mqqt_sending_actions.h"

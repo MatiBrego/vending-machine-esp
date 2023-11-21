@@ -1,15 +1,16 @@
-#ifndef __MQTT_DEF_H__
-#define __MQTT_DEF_H__
-
-#include "vending_actions.h"
-
 /*
+ * Project Vending-Machine
  *  mqtt_def.h
  *
  *      This is not a traditional header file
  *      As a matter of fact, it has all the configurations for MQTT in one file
  *      Please, modify it with caution
  */
+
+#ifndef __MQTT_DEF_H__
+#define __MQTT_DEF_H__
+
+#include "vending_actions.h"
 
 /*
  *  type definifitions
@@ -27,16 +28,6 @@ typedef struct
 
 static const topic_t topics[] =
 {
-    {   "clear", clear_leds },
-    {   "tr", toggle_red    },
-    // {   "ty", toggle_yel    },
-    {   "tg", toggle_grn    },
-    // {   "ti", toggle_int    },
-    {   "sr", set_red       },
-    // {   "sy", set_yel       },
-    {   "sg", set_grn       },
-    // {   "si", set_int       },
-    // {   "button", rx_button },
     {   "machine_init_6550dec96b946ce26bee14c4", update_values },
     {   NULL }
 };
@@ -53,21 +44,9 @@ static const char *subs[] =
 #if (SUB_LIST==0)
     "#",
 #elif (SUB_LIST==1)
-    "+/ti",
-    "82/si",
-    "82/sr",
-    "83/sy",
-    "+/sg",
-    "91/tr",
-    "92/ty",
-    "93/tg",
-    "+/clear",
-    "50/#",
-    "+/button",
-    "+/machine_init_1",
-#elif (SUB_LIST==2)
     "machine_init_6550dec96b946ce26bee14c4",
-
+#elif (SUB_LIST==2)
+    "machine_init_6550dec96b946ce26bee14c5"
 #else
     #error "Bad SUB_LIST symbol, out of range"
 #endif

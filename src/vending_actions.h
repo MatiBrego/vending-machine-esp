@@ -1,3 +1,9 @@
+/*  Project Vending-Machine
+ *   
+ *  vending_actions.cpp
+ *      Handle buying, credit, refill and start upate actions.
+ */
+
 void print_actual_state();
 void toggle_status();
 void insert_credit();

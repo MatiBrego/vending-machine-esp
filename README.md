@@ -1,18 +1,14 @@
 ![Austral Ingenieria](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQooGo7vQn4t9-6Bt46qZF-UY4_QFpYOeh7kVWzwpr_lbLr5wka)
 
-#   Project 41-mqtt_00
+#   Project Vending-Machine
 
-##  First example of MQTT with ESP32
+##  Smart vending machine simulation
 
-    A board with 3 external LEDs, 1 internal LED and 1 tact pushbutton using MQTT broker
-    The 4 LEDs are toggled and lit by subscription and the pushbutton closure is published (and also can be subscribed to)
-    It has 2 bit for enumeration so it may be connected till 4 boards with the same program to the same broker
-
-    Austral - Informatica Electronica - 2023 
-    EAMartinez
+    A board with 2 external LEDs 7 tact pushbutton using MQTT broker.
+    The pressing of the buttons acts as a buying action, and publishes the event into the MQTT broker.
+    There are also buttons for stock refill, credit insertion and break-down actions.
 
     See doc/README.md for further details
-    Also, the same info is in doc/41-mqtt_00.pdf
 
     
 

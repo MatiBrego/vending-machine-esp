@@ -1,5 +1,8 @@
 /*
- *  push.cpp
+ *  Project Vending-Machine
+
+ *   push.cpp
+ *      Initialize buttons and handle push.
  */
 
 #include "push.h"
